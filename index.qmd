@@ -108,8 +108,9 @@ Our purpose is to investigate whether Coors Field in Denver, Colorado is truly t
 ## 🤔 Discussion Questions: Stage 1 - Declaration of Purpose
 
 **Question 1: Hypothesis Formation**
-- Why might high altitude affect baseball performance?  Is Coors Field affected by high altitude?
-` Answer: High altitude may affect baseball performance because the air is thinner at higher altitudes, which can make it harder to hit the ball. Coors Field is affected by high altitude because it is located at a high altitude in Denver, Colorado. `
+- Why might high altitude affect baseball performance? Is Coors Field affected by high altitude?
+
+**Answer:** High altitude affects baseball performance because the air is thinner at higher elevations, which reduces air resistance and allows baseballs to travel farther when hit. This makes it easier to hit home runs and generally increases offensive production. Coors Field is indeed affected by high altitude because it is located in Denver, Colorado at an elevation of approximately 5,200 feet above sea level, making it the highest elevation ballpark in Major League Baseball.
 
 :::
 
@@ -155,6 +156,8 @@ print(avgDF_2021.head())
 
 **Question 1: Data Aggregation Strategy**
 - How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process?
+
+**Answer:** The dataset contains 2,430 games for 2010 and 2,430 games for 2021 (4,860 total games). We aggregate individual games into stadium averages before visualization because: (1) Individual games have high variability due to factors like weather, pitching matchups, and random chance; (2) Stadium averages provide a more stable measure of each ballpark's true offensive environment; (3) Aggregated data reduces noise and makes it easier to identify meaningful patterns and differences between stadiums; (4) Business stakeholders need summary statistics rather than individual game details to make decisions about stadium effects on scoring.
 :::
 
 ## Stage 3: Structuring of Visual Mappings
@@ -212,14 +215,21 @@ plt.show()
 
 **Question 1: Geometry Choices**
 - Why is a horizontal bar chart better than a scatter plot for this data?
-` Answer: A horizontal bar chart is better than a scatter plot for this data because it is easier to compare the values of the data. `
+
+**Answer:** A horizontal bar chart is better than a scatter plot for this data because: (1) We have categorical data (stadium names) rather than continuous variables, making bars more appropriate than points; (2) Bar charts make it easier to compare values across categories; (3) Stadium names are easier to read when displayed horizontally rather than as scattered points; (4) Bar charts provide a clearer visual hierarchy showing which stadiums have higher/lower values.
+
 - When would you choose a vertical bar chart over horizontal?
-` Answer: A vertical bar chart is better than a horizontal bar chart when the data is not categorical. `
+
+**Answer:** A vertical bar chart would be better when: (1) You have fewer categories (5-10) so labels fit well on the x-axis; (2) The category names are short; (3) You want to emphasize the "height" metaphor for values; (4) You have more horizontal space than vertical space available.
+
 **Question 2: Aesthetic Mappings**
 - What does the color highlighting accomplish in Approach 4?
-` Answer: The color highlighting accomplishes in Approach 4 is to highlight the Colorado Rockies stadium. `
+
+**Answer:** The color highlighting in Approach 4 accomplishes several things: (1) It immediately draws the viewer's attention to Colorado (COL) as the focus of the analysis; (2) It creates visual contrast that makes Colorado stand out from other stadiums; (3) It supports the narrative that Colorado is special or different from other ballparks; (4) It makes the visualization more engaging and easier to interpret at a glance.
+
 - How does position (x/y) compare to color for encoding data?
-` Answer: The position (x/y) compares to color for encoding data because the color is used to highlight the Colorado Rockies stadium. `
+
+**Answer:** Position (x/y coordinates) is generally more effective than color for encoding quantitative data because: (1) Position allows for precise comparison of values; (2) Humans can judge position more accurately than color intensity; (3) Position works well for people with color vision deficiencies; (4) Position can encode multiple dimensions simultaneously. Color is better for: (1) Categorical distinctions (like highlighting specific items); (2) Creating visual groupings; (3) Drawing attention to specific data points; (4) Adding aesthetic appeal without interfering with quantitative comparisons.
 
 :::
 
@@ -290,11 +300,12 @@ print(f"Colorado is {((colorado_runs / avgDF_2010_sorted.totalRuns.mean()) - 1) 
 
 **Question 1: Professional Formatting**
 - What elements make this visualization suitable for a business presentation?
-` Answer: The elements that make this visualization suitable for a business presentation are the professional formatting, the clear labels, and the easy to understand and interpret data. `
 
-- Is the annotation on the visualization helpful?  Can you fix its placement?
-` Answer: The annotation on the visualization is helpful because it provides a clear and concise explanation of the data. It is also easy to understand and interpret. `
-` Answer: Yes, I can fix its placement. `
+**Answer:** The elements that make this visualization suitable for a business presentation include: (1) Clear, descriptive title that states the main finding; (2) Professional color scheme with consistent branding; (3) Proper axis labels with units of measurement; (4) Legend that explains color coding; (5) Grid lines for easier value reading; (6) Strategic use of color highlighting to draw attention to key findings; (7) Clean, uncluttered layout with appropriate spacing; (8) Annotation that highlights the key insight; (9) Consistent font sizes and styles throughout.
+
+- Is the annotation on the visualization helpful? Can you fix its placement?
+
+**Answer:** Yes, the annotation is helpful because it: (1) Directly calls out Colorado's performance with specific numbers; (2) Draws attention to the key finding; (3) Provides context for the highlighted data point. The placement could be improved by: (1) Moving it slightly further from the bar to avoid overlap; (2) Using a more subtle arrow style; (3) Positioning it to not interfere with other data points; (4) Ensuring it's clearly readable against the background.
 
 :::
 
@@ -319,7 +330,7 @@ comparison_data = pd.merge(
     on='home', how='inner'
 )
 
-## TODO: Create the visualization
+# Create the visualization
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7,11.7))
 
 # 2010 data
@@ -357,6 +368,11 @@ plt.show()
 - Create a two-facet visualization that shows the total runs for 2010 and 2021 for each stadium in a single figure.  Highlight Colorado in the visualization.
 
 ```{python}
+#| label: two-facet-visualization
+#| echo: true
+#| message: false
+#| warning: false
+
 # Load the data
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -441,10 +457,14 @@ print(f"Ranking change: 1st → 3rd (dropped 2 positions)")
 
 
 **Question 2: Explanation of the Visualization**
+
 **Visualization Explanation:**
 
 This two-facet horizontal bar chart effectively compares total runs scored across all MLB stadiums between 2010 and 2021, with Colorado (COL) highlighted in red to draw attention to this specific team's performance. The visualization reveals several key insights: Colorado's Coors Field was the highest-scoring stadium in 2010 (858 total runs, ranked 1st) but dropped to third place in 2021 (863 total runs, ranked 3rd behind Boston and Baltimore). This change in ranking, despite a slight increase in total runs (+5), demonstrates how other stadiums have become more offensive environments over the 11-year span. The side-by-side comparison allows us to see how Colorado's offensive environment compares to other stadiums and whether this pattern remained consistent over time. The horizontal bar layout makes it easy to compare stadiums and identify which venues tend to produce the most runs, while the color coding immediately draws the viewer's attention to Colorado's position relative to other teams.
-- Does AI come to the right conclusion?  If not, why not?
+
+- Does AI come to the right conclusion? If not, why not?
+
+**Answer:** The AI analysis appears to be mostly correct in its conclusions. The visualization does show that Colorado was the highest-scoring stadium in 2010 and dropped in ranking by 2021. However, there are a few potential issues: (1) The analysis focuses on total runs rather than average runs per game, which might be more meaningful for comparing stadium effects; (2) The ranking change from 1st to 3rd is significant but the actual performance difference (+5 runs) is relatively small; (3) The analysis doesn't account for factors like schedule differences, team quality changes, or rule changes that might affect scoring across the league. Overall, the AI correctly identifies the key trends but could provide more nuanced analysis of the underlying causes.
 :::
 
 ## Student Analysis Section: Mastering Object-Oriented Matplotlib {#student-analysis-section}
