@@ -224,7 +224,7 @@ First few rows of 2010 data:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Question 1: Hypothesis Formation</strong> - Why might high altitude affect baseball performance? Is Coors Field affected by high altitude?</p>
+<p><strong>Question 1: Hypothesis Formation</strong> - Why might high altitude affect baseball performance? Is Coors Field affected by high altitude? <code>Answer: High altitude may affect baseball performance because the air is thinner at higher altitudes, which can make it harder to hit the ball. Coors Field is affected by high altitude because it is located at a high altitude in Denver, Colorado.</code></p>
 </div>
 </div>
 </section>
@@ -351,8 +351,7 @@ First few rows of 2010 data:
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Question 1: Geometry Choices</strong> - Why is a horizontal bar chart better than a scatter plot for this data? - When would you choose a vertical bar chart over horizontal?</p>
-<p><strong>Question 2: Aesthetic Mappings</strong> - What does the color highlighting accomplish in Approach 4? - How does position (x/y) compare to color for encoding data?</p>
+<p><strong>Question 1: Geometry Choices</strong> - Why is a horizontal bar chart better than a scatter plot for this data? <code>Answer: A horizontal bar chart is better than a scatter plot for this data because it is easier to compare the values of the data.</code> - When would you choose a vertical bar chart over horizontal? <code>Answer: A vertical bar chart is better than a horizontal bar chart when the data is not categorical.</code> <strong>Question 2: Aesthetic Mappings</strong> - What does the color highlighting accomplish in Approach 4? <code>Answer: The color highlighting accomplishes in Approach 4 is to highlight the Colorado Rockies stadium.</code> - How does position (x/y) compare to color for encoding data? <code>Answer: The position (x/y) compares to color for encoding data because the color is used to highlight the Colorado Rockies stadium.</code></p>
 </div>
 </div>
 </section>
@@ -436,7 +435,10 @@ Colorado is 20.8% above league average</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Question 1: Professional Formatting</strong> - What elements make this visualization suitable for a business presentation? - Is the annotation on the visualization helpful? Can you fix its placement?</p>
+<p><strong>Question 1: Professional Formatting</strong> - What elements make this visualization suitable for a business presentation? <code>Answer: The elements that make this visualization suitable for a business presentation are the professional formatting, the clear labels, and the easy to understand and interpret data.</code></p>
+<ul>
+<li>Is the annotation on the visualization helpful? Can you fix its placement? <code>Answer: The annotation on the visualization is helpful because it provides a clear and concise explanation of the data. It is also easy to understand and interpret.</code> <code>Answer: Yes, I can fix its placement.</code></li>
+</ul>
 </div>
 </div>
 </section>
@@ -444,7 +446,7 @@ Colorado is 20.8% above league average</code></pre>
 <h2 class="anchored" data-anchor-id="advanced-object-oriented-techniques">Advanced Object-Oriented Techniques</h2>
 <p><strong>Mental Model:</strong> Use object-oriented matplotlib to create complex, reusable visualizations.</p>
 <p>Let’s create a comprehensive comparison between 2010 and 2021:</p>
-<div id="advanced-oo-techniques" class="cell" data-execution_count="5">
+<div id="cell-advanced-oo-techniques" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Advanced Object-Oriented Techniques</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a comprehensive comparison visualization</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -455,7 +457,42 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'home'</span>, how<span class="op">=</span><span class="st">'inner'</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: Create the visualization</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: Create the visualization</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="fl">11.7</span>))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2010 data</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>avgDF_2010_sorted <span class="op">=</span> avgDF_2010.sort_values(<span class="st">'totalRuns'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>colorado_colors_2010 <span class="op">=</span> [<span class="st">"darkorchid"</span> <span class="cf">if</span> stadium <span class="op">==</span> <span class="st">"COL"</span> <span class="cf">else</span> <span class="st">"lightgrey"</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                       <span class="cf">for</span> stadium <span class="kw">in</span> avgDF_2010_sorted.home]</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax1.barh(avgDF_2010_sorted.home, avgDF_2010_sorted.totalRuns, color<span class="op">=</span>colorado_colors_2010)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"2010: Colorado Leads in Run-Friendliness"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Average Runs Per Game"</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Stadium (Home Team)"</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 2021 data</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>avgDF_2021_sorted <span class="op">=</span> avgDF_2021.sort_values(<span class="st">'totalRuns'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>colorado_colors_2021 <span class="op">=</span> [<span class="st">"darkorchid"</span> <span class="cf">if</span> stadium <span class="op">==</span> <span class="st">"COL"</span> <span class="cf">else</span> <span class="st">"lightgrey"</span> </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>                       <span class="cf">for</span> stadium <span class="kw">in</span> avgDF_2021_sorted.home]</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>ax2.barh(avgDF_2021_sorted.home, avgDF_2021_sorted.totalRuns, color<span class="op">=</span>colorado_colors_2021)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"2021: Colorado's Run-Friendliness"</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Average Runs Per Game"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Stadium (Home Team)"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Add legends</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>colorado_bar <span class="op">=</span> plt.Rectangle((<span class="dv">0</span>,<span class="dv">0</span>),<span class="dv">1</span>,<span class="dv">1</span>, color<span class="op">=</span><span class="st">"darkorchid"</span>, label<span class="op">=</span><span class="st">"Colorado Rockies"</span>)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>other_bar <span class="op">=</span> plt.Rectangle((<span class="dv">0</span>,<span class="dv">0</span>),<span class="dv">1</span>,<span class="dv">1</span>, color<span class="op">=</span><span class="st">"lightgrey"</span>, label<span class="op">=</span><span class="st">"Other Stadiums"</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>ax1.legend(handles<span class="op">=</span>[colorado_bar, other_bar], loc<span class="op">=</span><span class="st">'lower right'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>ax2.legend(handles<span class="op">=</span>[colorado_bar, other_bar], loc<span class="op">=</span><span class="st">'lower right'</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/advanced-oo-techniques-output-1.png" id="advanced-oo-techniques" width="689" height="1113" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -468,13 +505,120 @@ Colorado is 20.8% above league average</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: Using Subplot Layout</strong> - Create a two-facet visualization that shows the total runs for 2010 and 2021 for each stadium in a single figure. Highlight Colorado in the visualization.</p>
-<p><strong>Question 2: Explanation of the Visualization</strong> - Ask AI To Add A Paragraph Here To Explain The Visualization - Does AI come to the right conclusion? If not, why not?</p>
+<div id="c285ad02" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>df_2010 <span class="op">=</span> pd.read_csv(<span class="st">'baseball10.csv'</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>df_2021 <span class="op">=</span> pd.read_csv(<span class="st">'baseball21.csv'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add year column</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>df_2010[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2010</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>df_2021[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2021</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total runs for each game (visiting + home scores)</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>df_2010[<span class="st">'total_runs'</span>] <span class="op">=</span> df_2010[<span class="st">'visScore'</span>] <span class="op">+</span> df_2010[<span class="st">'homeScore'</span>]</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df_2021[<span class="st">'total_runs'</span>] <span class="op">=</span> df_2021[<span class="st">'visScore'</span>] <span class="op">+</span> df_2021[<span class="st">'homeScore'</span>]</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Group by home team (stadium) and calculate total runs for each year</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>runs_2010 <span class="op">=</span> df_2010.groupby(<span class="st">'home'</span>)[<span class="st">'total_runs'</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>runs_2010.columns <span class="op">=</span> [<span class="st">'stadium'</span>, <span class="st">'total_runs'</span>]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>runs_2010[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2010</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>runs_2021 <span class="op">=</span> df_2021.groupby(<span class="st">'home'</span>)[<span class="st">'total_runs'</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>runs_2021.columns <span class="op">=</span> [<span class="st">'stadium'</span>, <span class="st">'total_runs'</span>]</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>runs_2021[<span class="st">'year'</span>] <span class="op">=</span> <span class="dv">2021</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the data</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>combined_data <span class="op">=</span> pd.concat([runs_2010, runs_2021], ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the two-facet visualization</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">6</span>))</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 2010 data</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>data_2010 <span class="op">=</span> combined_data[combined_data[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2010</span>].sort_values(<span class="st">'total_runs'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>colors_2010 <span class="op">=</span> [<span class="st">'red'</span> <span class="cf">if</span> stadium <span class="op">==</span> <span class="st">'COL'</span> <span class="cf">else</span> <span class="st">'steelblue'</span> <span class="cf">for</span> stadium <span class="kw">in</span> data_2010[<span class="st">'stadium'</span>]]</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>bars1 <span class="op">=</span> ax1.barh(<span class="bu">range</span>(<span class="bu">len</span>(data_2010)), data_2010[<span class="st">'total_runs'</span>], color<span class="op">=</span>colors_2010)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>ax1.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(data_2010)))</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>ax1.set_yticklabels(data_2010[<span class="st">'stadium'</span>])</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Total Runs'</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Total Runs by Stadium - 2010'</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>ax1.grid(axis<span class="op">=</span><span class="st">'x'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 2021 data</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>data_2021 <span class="op">=</span> combined_data[combined_data[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2021</span>].sort_values(<span class="st">'total_runs'</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>colors_2021 <span class="op">=</span> [<span class="st">'red'</span> <span class="cf">if</span> stadium <span class="op">==</span> <span class="st">'COL'</span> <span class="cf">else</span> <span class="st">'steelblue'</span> <span class="cf">for</span> stadium <span class="kw">in</span> data_2021[<span class="st">'stadium'</span>]]</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>bars2 <span class="op">=</span> ax2.barh(<span class="bu">range</span>(<span class="bu">len</span>(data_2021)), data_2021[<span class="st">'total_runs'</span>], color<span class="op">=</span>colors_2021)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>ax2.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(data_2021)))</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>ax2.set_yticklabels(data_2021[<span class="st">'stadium'</span>])</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Total Runs'</span>)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Total Runs by Stadium - 2021'</span>)</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>ax2.grid(axis<span class="op">=</span><span class="st">'x'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Add legend</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>legend_elements <span class="op">=</span> [Patch(facecolor<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Colorado (COL)'</span>),</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>                   Patch(facecolor<span class="op">=</span><span class="st">'steelblue'</span>, label<span class="op">=</span><span class="st">'Other Stadiums'</span>)]</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>fig.legend(handles<span class="op">=</span>legend_elements, loc<span class="op">=</span><span class="st">'upper center'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">0.95</span>), ncol<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Print some statistics</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"2010 Colorado total runs:"</span>, data_2010[data_2010[<span class="st">'stadium'</span>] <span class="op">==</span> <span class="st">'COL'</span>][<span class="st">'total_runs'</span>].iloc[<span class="dv">0</span>])</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"2021 Colorado total runs:"</span>, data_2021[data_2021[<span class="st">'stadium'</span>] <span class="op">==</span> <span class="st">'COL'</span>][<span class="st">'total_runs'</span>].iloc[<span class="dv">0</span>])</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">2010 Average runs per stadium:"</span>, data_2010[<span class="st">'total_runs'</span>].mean())</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"2021 Average runs per stadium:"</span>, data_2021[<span class="st">'total_runs'</span>].mean())</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Colorado performance comparison</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>col_2010_runs <span class="op">=</span> data_2010[data_2010[<span class="st">'stadium'</span>] <span class="op">==</span> <span class="st">'COL'</span>][<span class="st">'total_runs'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>col_2021_runs <span class="op">=</span> data_2021[data_2021[<span class="st">'stadium'</span>] <span class="op">==</span> <span class="st">'COL'</span>][<span class="st">'total_runs'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>runs_change <span class="op">=</span> col_2021_runs <span class="op">-</span> col_2010_runs</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>percent_change <span class="op">=</span> (runs_change <span class="op">/</span> col_2010_runs) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">=== Colorado Performance Analysis ==="</span>)</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"2010: </span><span class="sc">{</span>col_2010_runs<span class="sc">}</span><span class="ss"> total runs (Rank: 1st)"</span>)</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"2021: </span><span class="sc">{</span>col_2021_runs<span class="sc">}</span><span class="ss"> total runs (Rank: 3rd)"</span>)</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Change: </span><span class="sc">{</span>runs_change<span class="sc">:+d}</span><span class="ss"> runs (</span><span class="sc">{</span>percent_change<span class="sc">:+.1f}</span><span class="ss">%)"</span>)</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Ranking change: 1st → 3rd (dropped 2 positions)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-7-output-1.png" width="1430" height="566" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2010 Colorado total runs: 858
+2021 Colorado total runs: 863
+
+2010 Average runs per stadium: 710.2666666666667
+2021 Average runs per stadium: 733.6666666666666
+
+=== Colorado Performance Analysis ===
+2010: 858 total runs (Rank: 1st)
+2021: 863 total runs (Rank: 3rd)
+Change: +5 runs (+0.6%)
+Ranking change: 1st → 3rd (dropped 2 positions)</code></pre>
+</div>
+</div>
+<p><strong>Question 2: Explanation of the Visualization</strong> <strong>Visualization Explanation:</strong></p>
+<p>This two-facet horizontal bar chart effectively compares total runs scored across all MLB stadiums between 2010 and 2021, with Colorado (COL) highlighted in red to draw attention to this specific team’s performance. The visualization reveals several key insights: Colorado’s Coors Field was the highest-scoring stadium in 2010 (858 total runs, ranked 1st) but dropped to third place in 2021 (863 total runs, ranked 3rd behind Boston and Baltimore). This change in ranking, despite a slight increase in total runs (+5), demonstrates how other stadiums have become more offensive environments over the 11-year span. The side-by-side comparison allows us to see how Colorado’s offensive environment compares to other stadiums and whether this pattern remained consistent over time. The horizontal bar layout makes it easy to compare stadiums and identify which venues tend to produce the most runs, while the color coding immediately draws the viewer’s attention to Colorado’s position relative to other teams. - Does AI come to the right conclusion? If not, why not?</p>
 </div>
 </div>
 </section>
 <section id="student-analysis-section" class="level2">
 <h2 class="anchored" data-anchor-id="student-analysis-section">Student Analysis Section: Mastering Object-Oriented Matplotlib</h2>
 <p><strong>Your Task:</strong> Demonstrate your mastery of object-oriented matplotlib and the four stages of visualization through comprehensive analysis and creation of professional visualizations.</p>
+<p>Stage 1: Purpose - The purpose of the visualization is to compare the total runs scored across all MLB stadiums between 2010 and 2021, with Colorado (COL) highlighted in red to draw attention to this specific team’s performance. A secondary purpose is to demonstrate the mastery of object-oriented matplotlib and the four stages of visualization.</p>
+<p>Stage 2: Curation of Content - The curation of the content is to gather and create all the data necessary to support the purpose of the visualization. Curation of content is important because it allows the visualization to be more accurate and informative.</p>
+<p>Stage 3: Structuring of Visual Mappings - The structuring of the visual mappings is to choose the right geometry and aesthetics to effectively communicate the message of the visualization. Structuring of visual mappings is important because it allows the visualization to be more effective and informative.</p>
+<p>Stage 4: Formatting for Your Audience - The formatting for your audience is to polish the visualization for professional presentation. Formatting for your audience is important because it allows the visualization to be more professional and informative. Formatting for your audience is also important because it allows the visualization to be more effective and informative.</p>
 <section id="core-challenge-four-stages-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="core-challenge-four-stages-analysis">Core Challenge: Four Stages Analysis</h3>
 <p><strong>For each stage, provide:</strong> - Clear, concise answers to all discussion questions - Code examples when asked to do so - Demonstration of object-oriented matplotlib techniques</p>
